@@ -22,19 +22,26 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Running end-to-end tests
+## Como gerar um novo componente
 
 Run `ng generate component <nome-component> ou ng g c <nome-component>` gera automaticament eum componente e adiciona no app.module.ts a referencia
 
-Estruturação
-- RouterModule, para configurar as rotas tudo em um lugar app.routing.ts
+<h3>Rotas</h3>
+ <li>RouterModule, para configurar as rotas tudo em um lugar app.routing.ts</li>
 
--Components 
- -- cadastro-contatos
- -- consulta-contatos
- -- edita-contatos
+<h3>Components</h3> 
+<ul>
+  <li>cadastro-contatos</li>
+  <li>consulta-contatos</li>
+  <li>edita-contatos</li>
+</ul>
 
- -FormGroup, FormControl, Validators
+<h3>Formulário</h3>
+<ul>
+  <li>FormGroup</li>
+  <li>FormControl</li>
+  <li>Validators</li>
+</ul>
  - Criando formulário em que o botão ficará desabilitado com regras de negócio e mensagens de erros nos campos
 
 ## Further help
