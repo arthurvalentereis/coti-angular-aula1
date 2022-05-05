@@ -3,11 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { FilterPipeModule } from 'ngx-filter-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 import { AppComponent } from './app.component';
-import { CadastroContatosComponent } from './cadastro-contatos/cadastro-contatos.component';
-import { ConsultaContatosComponent } from './consulta-contatos/consulta-contatos.component';
-import { EditaContatosComponent } from './edita-contatos/edita-contatos.component';
+import { CadastroContatosComponent } from './components/cadastro-contatos/cadastro-contatos.component';
+import { ConsultaContatosComponent } from './components/consulta-contatos/consulta-contatos.component';
+import { EditaContatosComponent } from './components/edita-contatos/edita-contatos.component';
+
+export const options: Partial<IConfig | null > | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -21,7 +29,13 @@ import { EditaContatosComponent } from './edita-contatos/edita-contatos.componen
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    NgxMaskModule.forRoot(),
+    FilterPipeModule,
+    NgxPaginationModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

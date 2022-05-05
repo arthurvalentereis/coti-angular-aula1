@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ContatoService } from 'src/app/services/contato.service';
+import { Contato } from 'src/app/models/contato.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-cadastro-contatos',
@@ -7,10 +10,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./cadastro-contatos.component.css']
 })
 export class CadastroContatosComponent implements OnInit {
-  
-  //atributos
+
+  //atributos 
   messages: string = "";
-  constructor() { }
+  contato : Contato = new Contato();
+
+  constructor(
+    private contatoService: ContatoService,
+    private spinnerService: NgxSpinnerService
+  ) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -32,18 +42,25 @@ export class CadastroContatosComponent implements OnInit {
     ])
   });
   // função para retornar os controles do formulário
-  get form(): any{
+  get form(): any {
     return this.formCadastro.controls;
   }
-  
+
 
   //função para capturar o submit do formulário
-  onSubmit() : void {
-    console.log(this.formCadastro.value);
-    this.formCadastro.reset();
-     //definir um valor para o atributo messages
-    this.messages = "Cadastrado com sucesso";
+  onSubmit(): void {
+    this.spinnerService.show();
+    this.contatoService.createContato(
+      this.formCadastro.value
+    )
+    .subscribe(
+      res =>{
+        this.messages = "Contato cadastrado com sucesso";
+        this.contato = res;
+        console.log(res);
+        this.formCadastro.reset();
+        this.spinnerService.hide();
+      }
+    )
   }
-
- 
 }
