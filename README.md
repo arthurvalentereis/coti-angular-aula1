@@ -26,6 +26,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 Run `ng generate component <nome-component> ou ng g c <nome-component>` gera automaticament eum componente e adiciona no app.module.ts a referencia
 
+Run `ng generate service <nome-component> ou ng g s <nome-component>` gera automaticament um service e adiciona no app.module.ts a referencia
+
 <h3>Rotas</h3>
  <li>RouterModule, para configurar as rotas tudo em um lugar app.routing.ts</li>
 

@@ -12,7 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class CadastroContatosComponent implements OnInit {
 
   //atributos 
-  messages: string = "";
+  mensagem: string = "";
   contato : Contato = new Contato();
 
   constructor(
@@ -55,7 +55,7 @@ export class CadastroContatosComponent implements OnInit {
     )
     .subscribe(
       res =>{
-        this.messages = "Contato cadastrado com sucesso";
+        this.mensagem = "Contato cadastrado com sucesso";
         this.contato = res;
         console.log(res);
         this.formCadastro.reset();
