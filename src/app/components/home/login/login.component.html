@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="text-end">
-                            <a href="#">Esqueci minha senha</a>
+                            <a [routerLink]="['/password']" >Esqueci minha senha</a>
                         </div>
                     </div>
                     <div class="mb-2 d-grid">
@@ -41,7 +41,7 @@
                             [disabled]="!formLogin.valid" />
                     </div>
                     <div class="mb-2 d-grid">
-                        <a href="#" class="btn btn-light">
+                        <a [routerLink]="['/register']" class="btn btn-light">
                             Não possui conta? <strong>Cadastre-se aqui</strong>
                         </a>
                     </div>

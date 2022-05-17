@@ -9,6 +9,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ContatosGuard } from './guards/contatos.guard';
 
 
 import { AppComponent } from './app.component';
@@ -20,7 +21,7 @@ import { RegisterComponent } from './components/home/register/register.component
 import { PasswordComponent } from './components/home/password/password.component';
 import { ResultContatoComponent } from './components/shared/result-contato/result-contato.component';
 
-export const options: Partial<IConfig | null > | (() => Partial<IConfig>) = null;
+export const options: Partial<IConfig | null> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -46,11 +47,14 @@ export const options: Partial<IConfig | null > | (() => Partial<IConfig>) = null
     NgxPaginationModule,
 
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    ContatosGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

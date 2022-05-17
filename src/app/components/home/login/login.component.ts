@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this.authenticationHelper.get())
+      this.router.navigate(['/consulta-contatos'])
   }
 
   formLogin = new FormGroup({

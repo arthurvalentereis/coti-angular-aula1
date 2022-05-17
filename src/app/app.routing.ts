@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule, Router } from "@angular/router";
+import { ContatosGuard } from "./guards/contatos.guard";
 
 import { CadastroContatosComponent } from "./components/admin/cadastro-contatos/cadastro-contatos.component";
 import { ConsultaContatosComponent } from "./components/admin/consulta-contatos/consulta-contatos.component";
@@ -14,9 +15,9 @@ const routes : Routes = [
     { path : 'login', component : LoginComponent},
     { path : 'register', component : RegisterComponent},
     { path : 'password', component : PasswordComponent},
-    { path : 'edita-contatos/:id', component : EditaContatosComponent},
-    { path : 'cadastro-contatos', component : CadastroContatosComponent},
-    { path : 'consulta-contatos', component : ConsultaContatosComponent}
+    { path : 'edita-contatos/:id', component : EditaContatosComponent , canActivate: [ContatosGuard]},
+    { path : 'cadastro-contatos', component : CadastroContatosComponent, canActivate: [ContatosGuard]},
+    { path : 'consulta-contatos', component : ConsultaContatosComponent, canActivate: [ContatosGuard]}
 ];
 
 @NgModule({
